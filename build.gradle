@@ -57,13 +57,13 @@ version = '1.0.0-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-/*    maven {
+    maven {
         url 'http://maven.iotcd.net:8181/repository/maven-public'
         credentials {
             username 'gzww'
             password 'gzww123'
         }
-    }*/
+    }
     maven { url 'https://maven.aliyun.com/repository/google' }
     maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
     maven { url 'https://maven.aliyun.com/repository/public' }

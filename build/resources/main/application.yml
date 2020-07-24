@@ -1,0 +1,12 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+## id生成器配置
+serial-no:
+  id-work: ${WORK_ID:random.int[800,1023]}
+## xss校验白名单
+#iotcd:
+#  xss:
+#    white-urls:
+#    - url: user-center-server/open/userInfo
+#      method: PUT
