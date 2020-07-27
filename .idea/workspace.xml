@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da301dcc-a5d5-459a-9eac-eb45968d9c6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/ApiCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/ApiResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/BaseApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/BasePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/BasePageUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/GlobalConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/Insert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/config/Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/utils/JwtTokenUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/utils/enums/ApiResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/1/91979e235386c21f2d99d0cee9d4af75c59118fa" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/1/91979e235386c21f2d99d0cee9d4af75c59118fa" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/1/a1bd30b6e000530a0412c38553dd226f0de22f25" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/1/a1bd30b6e000530a0412c38553dd226f0de22f25" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bootstrap.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +79,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -92,7 +109,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test_project" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2551724" />
@@ -100,9 +117,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="test.utils.enums" />
+      <recent name="test.config" />
+      <recent name="test.utils" />
       <recent name="test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\gitworkspace\my_gateway\src\main\java\test\config" />
+      <recent name="D:\gitworkspace\my_gateway\src\main\java\test\security" />
       <recent name="D:\gitworkspace\my_gateway" />
       <recent name="D:\gitworkspace\my_gateway\src\main\java\test\swagger" />
       <recent name="D:\gitworkspace\my_gateway\src\main\resources" />
@@ -147,7 +169,9 @@
       <workItem from="1595557004502" duration="569000" />
       <workItem from="1595557717843" duration="4021000" />
       <workItem from="1595561753589" duration="470000" />
-      <workItem from="1595562242157" duration="651000" />
+      <workItem from="1595562242157" duration="7695000" />
+      <workItem from="1595811579885" duration="2186000" />
+      <workItem from="1595818122907" duration="1424000" />
     </task>
     <servers />
   </component>
@@ -174,42 +198,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="668" y="167" key="#springfox-swagger-ui-2.9.2.jar/0.0.1920.1040@0.0.1920.1040" timestamp="1595561677213" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595562673636">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595818139420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595562673636" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1595561733787">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595818139420" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1595577212201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595561733787" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1595561733787">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595577212201" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1595577212201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595561733787" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1595561733787">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595577212201" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1595577212201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595561733787" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1595561733787">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595577212201" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1595577212201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595561733787" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1595561733787">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595577212201" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1595577212201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595561733787" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1595561733787">
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595577212201" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1595577212201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595561733787" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1595561733787">
+    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595577212201" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1595577212201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595561733787" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1595561733787">
+    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595577212201" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1595577212201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595561733787" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595577212201" />
     <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1595561733787">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -230,5 +254,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595562259795" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595574984377">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595574984377" />
   </component>
 </project>
