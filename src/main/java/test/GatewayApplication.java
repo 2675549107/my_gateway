@@ -13,7 +13,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients(value = "test")
+@EnableFeignClients(value = "test.feign")
 /*@ComponentScan(value = {"test"},excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,classes = {BaseHandlerException.class}),
         @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,classes = {BaseSwaggerConfig.class})

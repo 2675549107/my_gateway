@@ -87,8 +87,6 @@ dependencies {
     compile group: 'io.springfox', name: 'springfox-schema', version: '2.9.2'
     compile group: 'io.springfox', name: 'springfox-core', version: '2.9.2'
 
-
-
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
@@ -109,6 +107,8 @@ dependencies {
     //日志
     compile 'net.logstash.logback:logstash-logback-encoder:6.3'
     implementation 'org.codehaus.janino:janino'
+    //feign
+    compile 'org.springframework.cloud:spring-cloud-starter-openfeign:2.1.4.RELEASE'
 }
 
 dependencyManagement {

@@ -66,45 +66,6 @@ public class SecurityConfig {
     private static String[] AUTH_WHITELIST = new String[]{
             "/actuator/**",
             "/ucenter-web/login",
-            "/user-center-server/user/manage/login",
-            "/user-center-server/user/applet/login",
-            "/user-center-server/user/applet/session-key",
-            "/swagger-resources/**",
-            "/*/v2/api-docs/**",
-            "/swagger-ui.html",
-            "/favicon.ico",
-            "/webjars/springfox-swagger-ui/**",
-            "/expo-server/open-sharing-info/**",
-            "/page/index/**","/page/callback/**",
-            "/user-center-server/applet/login",
-            "/user-center-server/applet/login",
-            "/user-center-server/applet/session-key",
-            "/newsmessage-server/app/notices/**",
-            "/newsmessage-server/app/banner/**",
-            "/newsmessage-server/app/news/**",
-            "/newsmessage-server/app/news/**",
-            "/expo-server/project/org/station",
-            "/expo-server/exhibitor-builder/open/register",
-            "/expo-server/exhibitor-builder/open/register/check",
-            "/user-center-server/open/**",
-            "/expo-server/project/org/user",
-            "/expo-server/project/org/verifyAndBind",
-            "/user-center-server/applet/openid",
-            "/expo-server/app/pavilions/**",
-            "/expo-server/certificates/submit",
-            "/expo-server/certificates/token",
-            "/pay-server/pay/notify/**",
-            "/smart-dining-server/app/catering-shops",
-            "/business-center-server/app/shop/page",
-            "/mall-server/app/commodity/page",
-            "/mall-server/commodity/type/list",
-            "/expo-server/app/exhibitions/*",
-            "/smart-dining-server/app/catering-shops/*",
-            "/smart-dining-server/app/dishes",
-            "/utility-server/app/travel/detail",
-            "/utility-server/app/travel/page",
-            "/utility-server/app/rental-plants/page",
-
     };
 
     /**
@@ -268,6 +229,7 @@ public class SecurityConfig {
             if (StringUtils.isNotBlank(type) && type.equals(TokenTypeConstant.APPLET)) {
                 ServerWebExchangeMatchers.pathMatchers(APP_AUTH_WHITELIST).matches(exchange).map(ServerWebExchangeMatcher.MatchResult::isMatch).subscribe(flag::add);
             }
+            //这里判断了是否是白名单路径
             boolean matchResultBol = flag.stream().anyMatch(n -> n.equals(true));
 
             //处理超级管理员
@@ -279,7 +241,7 @@ public class SecurityConfig {
                     log.info("超级管理员 放行");
                     return chain.filter(exchange);
                 } else if (headerRole.equals(GlobalConstant.AUTH_ROLE_ANONYMOUS) && !matchResultBol) {
-                    //判断身份为游客的时候 则抛出异常提示登录
+                    //判断身份为游客并且请求不在白名单的时候 则抛出异常提示登录
                     exchange.getResponse().getHeaders().remove(GlobalConstant.ROLE_KEY);
                     throw new AuthenticationCredentialsNotFoundException("UNAUTHORIZED");
                 }
@@ -299,27 +261,13 @@ public class SecurityConfig {
 
             //hasRole  会加前缀 ROLE_ 然后匹配(ROLE_USER  能匹配上  USER)  -- hasAuthority则是直接根据名字匹配(ROLE_USER  只能匹配上  ROLE_USER)
             //配置当前角色 有哪些权限
-            //处理url传参的情况
+            //处理url传参的情况（把/1这种以/{id}代替）（因为角色能否访问一个页面是通过url决定的，这里解决/xx/1这种url匹配的角色）
             String replacePath = path.replaceAll("/[\\-0-9]+", "/{id}");
 
 
-            //处理系统类型
-            String systemTypeStr = exchange.getRequest().getHeaders().getFirst(HeaderConstant.SYSTEM_TYPE);
-            if (StringUtils.isBlank(systemTypeStr)) {
-                log.error("SYSTEM_TYPE 为空");
-                throw new AuthenticationCredentialsNotFoundException("UNAUTHORIZED");
-            }
-            SystemType systemType;
-            try {
-                systemType = SystemType.valueOf(systemTypeStr);
-            } catch (IllegalArgumentException e) {
-                log.error("SYSTEM_TYPE 实例化异常:{}", systemTypeStr);
-                throw new AuthenticationCredentialsNotFoundException("UNAUTHORIZED");
-            }
-
             //处理验证是web 还是 app
             String tokenType = exchange.getRequest().getHeaders().getFirst(HeaderConstant.TOKEN_TYPE);
-            if (StringUtils.isBlank(systemTypeStr)) {
+            if (StringUtils.isBlank(tokenType)) {
                 log.error("TOKEN_TYPE 为空");
                 throw new AuthenticationCredentialsNotFoundException("UNAUTHORIZED");
             }
@@ -332,7 +280,7 @@ public class SecurityConfig {
                 apiResult = resourceAuthApiClient.loadByUrl(replacePath, method.name(), ResourceAuthClientTypeEnum.WEB, systemType);
             }
             if (apiResult.getCode() != HttpStatus.OK.value()) {
-                log.error("远程调用失败:loadByUrl:param={},{},{}", replacePath, method.name(), systemType.name());
+                log.error("远程调用失败:loadByUrl:param={},{}", replacePath, method.name());
                 roles = new ArrayList<>();
             } else {
                 roles = apiResult.getData();

@@ -36,3 +36,10 @@ _
 /src/main/java/test/utils/enums/ApiResponse.java,e\e\ee06d68d0d6eea9064d295e48fcd6a9cbd33308f
 ]
 -src/main/java/test/config/SecurityConfig.java,1\e\1e2ea4f3b4c47859ff842f9ce8c6cd314d15e9b9
+]
+-src/main/java/test/config/HeaderConstant.java,1\8\183d54fe3897aa433049f15e2a0c99809e35e42e
+`
+0src/main/java/test/config/TokenTypeConstant.java,4\2\420a58afa30288a000df63f33021f8c86114a04d
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

@@ -1,25 +1,25 @@
 
+D
+java:S1199›"-Extract this nested code block into a method.(É¶È
+]
+java:S3252í"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ÑÅşÉ
+D
+java:S1199‘"-Extract this nested code block into a method.(ƒá×Æ
+]
+java:S3252Ï"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ÑÅşÉ
+k
+java:S1192ö"MDefine a constant instead of duplicating this literal "UNAUTHORIZED" 3 times.(«İ™®8°ÛÂ¹.
+n
+java:S3776Ô"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(áù…Ñüÿÿÿÿ
+C
+java:S1602¯",Remove useless curly braces around statement(‹÷ó’
+I
+java:S1199©"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ
 t
 java:S3008B"YRename this field "AUTH_WHITELIST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ»†İúÿÿÿÿ
-K
-java:S3740Ú"/Provide the parametrized type for this generic.(ÛŸ×úûÿÿÿÿ
-I
-java:S1199Ğ"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ
 J
 java:S2696>"6Make the enclosing method "static" or remove this set.(«”
-i
-java:S3776¢"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(÷È¯¦
-d
-java:S1192œ"MDefine a constant instead of duplicating this literal "UNAUTHORIZED" 5 times.(«İ™®
-]
-java:S3252ƒ"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ÑÅşÉ
-C
-java:S1602Ö",Remove useless curly braces around statement(‹÷ó’
-D
-java:S1199¸"-Extract this nested code block into a method.(ƒá×Æ
-]
-java:S3252¡"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ÑÅşÉ
-D
-java:S1199Â"-Extract this nested code block into a method.(É¶È
-n
-java:S3776û"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(áù…Ñüÿÿÿÿ
+h
+java:S3776{"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(÷È¯¦
+K
+java:S3740¦"/Provide the parametrized type for this generic.(ÛŸ×úûÿÿÿÿ

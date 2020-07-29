@@ -3,31 +3,47 @@ package test.config;
 /**
  * @Author: WuDi
  * @Description:
- * @Date: Created in 13:37 2020/7/24
+ * @Date: Created in 16:06 2020/7/28
  */
-public class GlobalConstant {
+public interface GlobalConstant {
     /**
-     * 游客
+     * token请求头的key
+     */
+    String HEADER_TOKEN_KEY = "Access-Token";
+
+    /**
+     * 游客身份
      */
     String AUTH_ROLE_ANONYMOUS = "ANONYMOUS";
 
     /**
-     * 普通用户
+     * 用户身份
      */
-    String AUTH_ROLE_USER = "USER";
+    String AUTH_USER = "USER";
+
 
     /**
-     * 管理员
+     * 用户身份 超级管理员
      */
     String AUTH_ROLE_ADMIN = "ADMIN";
 
     /**
+     * 身份 用于header中身份的传递
+     */
+    String ROLE_KEY = "Role";
+
+    /**
+     * 身份前缀
+     */
+    String AUTH_PREFIX = "ROLE_";
+
+    /**
      * 允许的请求头参数
      */
-    static final String ACCESS_CONTROL_ALLOW_HEADERS = "X-Requested-With, Origin, Content-Type, Cookie,Authorization,Access-Token,system_type";
+    String ACCESS_CONTROL_ALLOW_HEADERS = "X-Requested-With, Origin, Content-Type, Cookie,Authorization,Access-Token,system_type";
 
     /**
      * 允许的方法(  "*" 浏览器版本较低的时候不支持)
      */
-    static final String ACCESS_CONTROL_ALLOW_METHODS = "GET,POST,DELETE,PUT,OPTIONS,HEAD,CONNECT,TRACE,PATCH,*";
+    String ACCESS_CONTROL_ALLOW_METHODS = "GET,POST,DELETE,PUT,OPTIONS,HEAD,CONNECT,TRACE,PATCH,*";
 }
