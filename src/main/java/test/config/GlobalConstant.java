@@ -14,18 +14,22 @@ public interface GlobalConstant {
     /**
      * 游客身份
      */
-    String AUTH_ROLE_ANONYMOUS = "ANONYMOUS";
+    String AUTH_ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
 
     /**
-     * 用户身份
+     * 用户身份 已登录
+     */
+    String AUTH_ROLE_USER = "ROLE_USER";
+
+    /**
+     * 用户身份 已登录
      */
     String AUTH_USER = "USER";
-
 
     /**
      * 用户身份 超级管理员
      */
-    String AUTH_ROLE_ADMIN = "ADMIN";
+    String AUTH_ROLE_ADMIN = "ROLE_ADMIN";
 
     /**
      * 身份 用于header中身份的传递

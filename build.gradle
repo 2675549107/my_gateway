@@ -104,11 +104,14 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 
+    compile 'mysql:mysql-connector-java'
+    compile 'com.baomidou:mybatis-plus-boot-starter:3.3.0'
     //日志
     compile 'net.logstash.logback:logstash-logback-encoder:6.3'
     implementation 'org.codehaus.janino:janino'
     //feign
     compile 'org.springframework.cloud:spring-cloud-starter-openfeign:2.1.4.RELEASE'
+    compile 'com.baomidou:mybatis-plus-boot-starter:3.3.0'
 }
 
 dependencyManagement {

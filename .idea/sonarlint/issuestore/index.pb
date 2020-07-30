@@ -43,3 +43,21 @@ _
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+Z
+*src/main/java/test/feign/package-info.java,c\2\c27bc59e20ba49c8fed54cc19f23f628ae6e59c1
+r
+Bsrc/main/java/test/feign/ResourceAuthApiClientFallbackFactory.java,e\4\e42794e9a7294e5163f3ab8d17bd5a56fbf088fe
+|
+Lsrc/main/java/test/security/CustomAuthorityReactiveAuthorizationManager.java,7\1\714bfbddf08ccc65316c334e17be8e5c46b6e245
+g
+7src/main/java/test/security/WebAuthenticationToken.java,9\1\9177e37a29cc571a8e08e154ad79c62fc0735470
+j
+:src/main/java/test/security/AppletAuthenticationToken.java,3\b\3b61b27ab7c131707c5fe0ca41694e36c846f9f2
+p
+@src/main/java/test/feign/UserCenterApiClientFallbackFactory.java,2\6\2632af72bfe0385ae3ecc7793763ae2c3994b819
+l
+<src/main/java/test/security/CustomAuthenticationManager.java,3\1\31ad58eb7e0ffd5648f6c81b23c735175dba062e
+c
+3src/main/java/test/feign/ResourceAuthApiClient.java,7\d\7d16343fff6199ad8ab9a2fed81dbf247a0bb7a2
+a
+1src/main/java/test/feign/UserCenterApiClient.java,2\9\29e10abe48cda8f706becc4ddfb667931b454163

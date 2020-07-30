@@ -2,6 +2,7 @@ package test.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import test.config.ApiResult;
 
 import java.util.List;
@@ -22,5 +23,5 @@ public interface ResourceAuthApiClient {
      * @return
      */
     @GetMapping("/user/load")
-    ApiResult<List<String>> loadByUrl(String url, String method);
+    ApiResult<List<String>> loadByUrl(@RequestParam("url")String url, @RequestParam("method")String method);
 }
