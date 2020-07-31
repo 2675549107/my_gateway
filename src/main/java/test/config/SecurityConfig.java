@@ -80,7 +80,7 @@ public class SecurityConfig {
 
     private static String[] AUTH_WHITELIST = new String[]{
             "/actuator/**",
-            "/ucenter-web/login",
+            "/user-center-server/user/login",
             "/user-center-server/user/manage/login",
             "/user-center-server/user/applet/login",
             "/user-center-server/user/applet/session-key",
