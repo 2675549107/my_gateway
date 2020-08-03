@@ -15,7 +15,6 @@ import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Mono;
 import test.config.ApiResult;
 import test.config.GlobalConstant;
-import test.feign.UserCenterApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +40,8 @@ public class CustomAuthenticationManager implements ReactiveAuthenticationManage
             //如果是WEB端 则会去加载对应角色
             if (authentication.getClass().isAssignableFrom(WebAuthenticationToken.class)) {
                 WebAuthenticationToken token = (WebAuthenticationToken) authentication;
-                if(token.getStationId()!=null){
-                    ApiResult<List<String>> apiResult = userCenterApiClient.findRoleByStationId(token.getStationId());
+                if(token.getRoleId()!=null){
+                    ApiResult<List<String>> apiResult = userCenterApiClient.findRoleByStationId(token.getRoleId());
                     if (apiResult.getCode() == HttpStatus.OK.value()) {
                         if(!CollectionUtils.isEmpty(apiResult.getData())){
                             roles=apiResult.getData().stream().map(n-> GlobalConstant.AUTH_PREFIX+n).collect(Collectors.toList());

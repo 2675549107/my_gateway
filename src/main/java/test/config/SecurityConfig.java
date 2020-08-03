@@ -183,45 +183,20 @@ public class SecurityConfig {
             try {
                 Claims claimsFromToken = jwtTokenUtils.getClaimsFromToken(token);
                 accountNameFromToken = claimsFromToken.getSubject();
-                String tokenType = claimsFromToken.get("type", String.class);
-                //小程序用户Token
                 Long userId = claimsFromToken.get(HeaderConstant.USER_ID, Long.class);
-                Map<String, String> headerMap = new HashMap<>(4);
+                Map<String, String> headerMap = new HashMap<>(2);
 
-                Long stationId = claimsFromToken.get(HeaderConstant.STATION_ID, Long.class);
-                Long departmentId = claimsFromToken.get(HeaderConstant.DEPARTMENT_ID, Long.class);
+                Long roleId = claimsFromToken.get(HeaderConstant.ROLE_ID, Long.class);
                 Authentication authentication;
-                switch (tokenType) {
-                    case TokenTypeConstant.APPLET: {
-                        Long userAppletId = claimsFromToken.get(HeaderConstant.USER_APPLET_ID, Long.class);
-                        headerMap.put(HeaderConstant.USER_APPLET_ID, userAppletId == null ? "" : userAppletId.toString());
-                        headerMap.put(HeaderConstant.TOKEN_TYPE, TokenTypeConstant.APPLET);
-                        headerMap.put(HeaderConstant.USER_ID, userId == null ? "" : userId.toString());
-                        headerMap.put(HeaderConstant.STATION_ID, stationId == null ? "" : stationId.toString());
-                        headerMap.put(HeaderConstant.DEPARTMENT_ID, departmentId == null ? "" : departmentId.toString());
-                        authentication = new AppletAuthenticationToken(accountNameFromToken, token);
-                        break;
-                    }
-                    case TokenTypeConstant.WEB: {
-                        Long userManageId = claimsFromToken.get(HeaderConstant.USER_MANAGE_ID, Long.class);
-                        headerMap.put(HeaderConstant.USER_ID, userId == null ? "" : userId.toString());
-                        headerMap.put(HeaderConstant.STATION_ID, stationId == null ? "" : stationId.toString());
-                        headerMap.put(HeaderConstant.USER_MANAGE_ID, userManageId == null ? "" : userManageId.toString());
-                        headerMap.put(HeaderConstant.DEPARTMENT_ID, departmentId == null ? "" : departmentId.toString());
-                        headerMap.put(HeaderConstant.TOKEN_TYPE, TokenTypeConstant.WEB);
-                        //处理超级管理员
-                        if (stationId != null && stationId.equals(-1L)) {
-                            exchange.getResponse().getHeaders().set(GlobalConstant.ROLE_KEY, GlobalConstant.AUTH_ROLE_ADMIN);
-                        }
-                        authentication = new WebAuthenticationToken(accountNameFromToken, token, stationId);
-                        break;
-                    }
-                    default: {
-                        exchange.getResponse().getHeaders().set(GlobalConstant.ROLE_KEY, GlobalConstant.AUTH_ROLE_ANONYMOUS);
-                        authentication = anonymous;
-                        break;
-                    }
+
+                headerMap.put(HeaderConstant.USER_ID, userId == null ? "" : userId.toString());
+                headerMap.put(HeaderConstant.ROLE_ID, roleId == null ? "" : roleId.toString());
+                //超级管理员
+                if (roleId != null && roleId.equals(1L)) {
+                    exchange.getResponse().getHeaders().set(GlobalConstant.ROLE_KEY, GlobalConstant.AUTH_ROLE_ADMIN);
                 }
+                authentication = new WebAuthenticationToken(accountNameFromToken, token, roleId);
+
                 exchange.getRequest().mutate().headers(httpHeaders -> {
                     httpHeaders.setAll(headerMap);
                 });
@@ -328,19 +303,12 @@ public class SecurityConfig {
             String replacePath = path.replaceAll("/[\\-0-9]+", "/{id}");
 
             //处理验证是web 还是 app
-            String tokenType = exchange.getRequest().getHeaders().getFirst(HeaderConstant.TOKEN_TYPE);
-            if (StringUtils.isBlank(tokenType)) {
-                log.error("TOKEN_TYPE 为空");
-                throw new AuthenticationCredentialsNotFoundException("UNAUTHORIZED");
-            }
             List<String> roles;
             //请求获取当前url 需要的角色
             ApiResult<List<String>> apiResult;
-            if (tokenType.equals(TokenTypeConstant.APPLET)) {
-                apiResult = resourceAuthApiClient.loadByUrl(replacePath, method.name());
-            } else {
-                apiResult = resourceAuthApiClient.loadByUrl(replacePath, method.name());
-            }
+
+            apiResult = resourceAuthApiClient.loadByUrl(replacePath, method.name());
+
             if (apiResult.getCode() != HttpStatus.OK.value()) {
                 log.error("远程调用失败:loadByUrl:param={},{}", replacePath, method.name());
                 roles = new ArrayList<>();

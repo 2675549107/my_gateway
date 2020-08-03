@@ -25,9 +25,9 @@ public class UserCenterApiClientFallbackFactory implements FallbackFactory<UserC
         cause.printStackTrace();
         return new UserCenterApiClient(){
             @Override
-            public ApiResult<List<String>> findRoleByStationId(Long stationId) {
-                log.error("获取用户角色-资源加载失败 stationId:{}",stationId);
-                log.error("获取用户角色-资源加载失败 stationId:{}",stationId);
+            public ApiResult<List<String>> findRoleByStationId(Long roleId) {
+                log.error("获取用户角色-资源加载失败 roleId:{}",roleId);
+                log.error("获取用户角色-资源加载失败 roleId:{}",roleId);
                 return ApiResponse.INSTANCE.error(ApiCode.SERVER_ERROR,"服务繁忙，请稍后再试");
             }
         };

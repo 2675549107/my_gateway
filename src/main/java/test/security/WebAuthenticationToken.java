@@ -14,22 +14,22 @@ import java.util.Collection;
 public class WebAuthenticationToken extends AbstractAuthenticationToken {
     private final Object principal;
     private Object credentials;
-    private Long stationId;
+    private Long roleId;
 
 
-    public WebAuthenticationToken(Object principal, Object credentials, Long stationId) {
+    public WebAuthenticationToken(Object principal, Object credentials, Long roleId) {
         super(null);
         this.principal = principal;
         this.credentials = credentials;
-        this.stationId = stationId;
+        this.roleId = roleId;
         setAuthenticated(false);
     }
 
-    public WebAuthenticationToken(Object principal, Object credentials, Long stationId,
+    public WebAuthenticationToken(Object principal, Object credentials, Long roleId,
                                   Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
         this.principal = principal;
-        this.stationId = stationId;
+        this.roleId = roleId;
         this.credentials = credentials;
         // must use super, as we override
         super.setAuthenticated(true);
@@ -61,7 +61,7 @@ public class WebAuthenticationToken extends AbstractAuthenticationToken {
         credentials = null;
     }
 
-    public Long getStationId() {
-        return this.stationId;
+    public Long getRoleId() {
+        return this.roleId;
     }
 }
