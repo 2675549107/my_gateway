@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import test.config.ApiResult;
+import test.pojo.vo.RoleVO;
 
 import java.util.List;
 
@@ -17,10 +18,10 @@ public interface UserCenterApiClient {
 
     /**
      * 加载用户角色
-     * @param stationId
+     * @param roleId
      * @return
      */
-    @GetMapping("user/manage/loadRoleByStation")
+    @GetMapping("/user/findRoleById")
     @ApiOperation("智会云系统加载用户角色")
-    ApiResult<List<String>> findRoleByStationId(@RequestParam("stationId") Long stationId);
+    ApiResult<RoleVO> findRoleById(@RequestParam("roleId") Long roleId);
 }

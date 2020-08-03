@@ -3,8 +3,10 @@ package test.feign;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 import test.config.ApiCode;
 import test.config.ApiResult;
+import test.pojo.vo.RoleVO;
 import test.utils.enums.ApiResponse;
 
 import java.util.List;
@@ -25,7 +27,7 @@ public class UserCenterApiClientFallbackFactory implements FallbackFactory<UserC
         cause.printStackTrace();
         return new UserCenterApiClient(){
             @Override
-            public ApiResult<List<String>> findRoleByStationId(Long roleId) {
+            public ApiResult<RoleVO> findRoleById(@RequestParam("roleId") Long roleId) {
                 log.error("获取用户角色-资源加载失败 roleId:{}",roleId);
                 log.error("获取用户角色-资源加载失败 roleId:{}",roleId);
                 return ApiResponse.INSTANCE.error(ApiCode.SERVER_ERROR,"服务繁忙，请稍后再试");
