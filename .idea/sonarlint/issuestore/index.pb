@@ -38,8 +38,6 @@ _
 -src/main/java/test/config/SecurityConfig.java,1\e\1e2ea4f3b4c47859ff842f9ce8c6cd314d15e9b9
 ]
 -src/main/java/test/config/HeaderConstant.java,1\8\183d54fe3897aa433049f15e2a0c99809e35e42e
-`
-0src/main/java/test/config/TokenTypeConstant.java,4\2\420a58afa30288a000df63f33021f8c86114a04d
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -61,3 +59,5 @@ c
 3src/main/java/test/feign/ResourceAuthApiClient.java,7\d\7d16343fff6199ad8ab9a2fed81dbf247a0bb7a2
 a
 1src/main/java/test/feign/UserCenterApiClient.java,2\9\29e10abe48cda8f706becc4ddfb667931b454163
+T
+$src/main/java/test/package-info.java,d\8\d8d06094ce0aa190c007c221319d32ab0d72361b

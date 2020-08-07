@@ -1,9 +1,10 @@
 package test.feign;
 
 import io.swagger.annotations.ApiOperation;
+import net.iotcd.api.sdk.core.result.ApiResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import test.config.ApiResult;
+
 import test.pojo.vo.RoleVO;
 
 import java.util.List;

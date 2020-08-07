@@ -3,6 +3,9 @@ package test.config;
 import com.alibaba.fastjson.JSONObject;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
+import net.iotcd.api.sdk.core.result.ApiCode;
+import net.iotcd.api.sdk.core.result.ApiResponse;
+import net.iotcd.api.sdk.core.result.ApiResult;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -35,12 +38,11 @@ import org.springframework.web.cors.reactive.CorsUtils;
 import org.springframework.web.server.WebFilter;
 import reactor.core.publisher.Mono;
 import test.feign.ResourceAuthApiClient;
-import test.security.AppletAuthenticationToken;
 import test.security.CustomAuthenticationManager;
 import test.security.CustomAuthorityReactiveAuthorizationManager;
 import test.security.WebAuthenticationToken;
 import test.utils.JwtTokenUtils;
-import test.utils.enums.ApiResponse;
+
 
 import java.nio.charset.Charset;
 import java.util.*;
@@ -81,50 +83,14 @@ public class SecurityConfig {
     private static String[] AUTH_WHITELIST = new String[]{
             "/actuator/**",
             "/user-center-server/user/login",
-            "/user-center-server/user/manage/login",
-            "/user-center-server/user/applet/login",
-            "/user-center-server/user/applet/session-key",
             "/swagger-resources/**",
             "/*/v2/api-docs/**",
             "/swagger-ui.html",
             "/favicon.ico",
             "/webjars/springfox-swagger-ui/**",
-            "/expo-server/open-sharing-info/**",
             "/page/index/**","/page/callback/**",
-            "/user-center-server/applet/login",
-            "/user-center-server/applet/login",
-            "/user-center-server/applet/session-key",
-            "/newsmessage-server/app/notices/**",
-            "/newsmessage-server/app/banner/**",
-            "/newsmessage-server/app/news/**",
-            "/newsmessage-server/app/news/**",
-            "/expo-server/project/org/station",
-            "/expo-server/exhibitor-builder/open/register",
-            "/expo-server/exhibitor-builder/open/register/check",
-            "/user-center-server/open/**",
-            "/expo-server/project/org/user",
-            "/expo-server/project/org/verifyAndBind",
-            "/user-center-server/applet/openid",
-            "/expo-server/app/pavilions/**",
-            "/expo-server/certificates/submit",
-            "/expo-server/certificates/token",
-            "/pay-server/pay/notify/**",
-            "/smart-dining-server/app/catering-shops",
-            "/business-center-server/app/shop/page",
-            "/mall-server/app/commodity/page",
-            "/mall-server/commodity/type/list",
-            "/expo-server/app/exhibitions/*",
-            "/smart-dining-server/app/catering-shops/*",
-            "/smart-dining-server/app/dishes",
-            "/utility-server/app/travel/detail",
-            "/utility-server/app/travel/page",
-            "/utility-server/app/rental-plants/page"
+            "/user-center-server/open/**"
     };
-
-    /**
-     * 小程序不需要拦截的路径
-     */
-    private static final String[] APP_AUTH_WHITELIST = new String[]{"/**/app/**", "/**/applet/**"};
 
     @Autowired
     private CustomAuthenticationManager customAuthenticationManager;
@@ -218,11 +184,7 @@ public class SecurityConfig {
         //配置不需要认证的地址  不会再进CustomAuthenticationManager 不会去查找用户身份
         List<ServerWebExchangeMatcher> matchers = new ArrayList<>(AUTH_WHITELIST.length + 1);
         for (String pattern : AUTH_WHITELIST) {
-            if(pattern.equals("/smart-dining-server/app/catering-shops/*")){
-                matchers.add(new PathPatternParserServerWebExchangeMatcher(pattern, HttpMethod.GET));
-            }else{
-                matchers.add(new PathPatternParserServerWebExchangeMatcher(pattern, null));
-            }
+            matchers.add(new PathPatternParserServerWebExchangeMatcher(pattern, null));
         }
         //添加不处理options请求
         matchers.add(new PathPatternParserServerWebExchangeMatcher("/**", HttpMethod.OPTIONS));
@@ -263,11 +225,6 @@ public class SecurityConfig {
                     .map(ServerWebExchangeMatcher.MatchResult::isMatch)
                     .subscribe(flag::add);
 
-            //处理如果是app的请求 则校验app的白名单
-            String type = exchange.getRequest().getHeaders().getFirst(HeaderConstant.TOKEN_TYPE);
-            if (StringUtils.isNotBlank(type) && type.equals(TokenTypeConstant.APPLET)) {
-                ServerWebExchangeMatchers.pathMatchers(APP_AUTH_WHITELIST).matches(exchange).map(ServerWebExchangeMatcher.MatchResult::isMatch).subscribe(flag::add);
-            }
             boolean matchResultBol = flag.stream().anyMatch(n -> n.equals(true));
 
             //处理超级管理员
@@ -302,7 +259,6 @@ public class SecurityConfig {
             //处理url传参的情况
             String replacePath = path.replaceAll("/[\\-0-9]+", "/{id}");
 
-            //处理验证是web 还是 app
             List<String> roles;
             //请求获取当前url 需要的角色
             ApiResult<List<String>> apiResult;

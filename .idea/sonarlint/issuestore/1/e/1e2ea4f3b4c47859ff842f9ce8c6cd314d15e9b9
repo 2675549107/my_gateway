@@ -1,33 +1,23 @@
 
-{
-java:S3008Q"YRename this field "AUTH_WHITELIST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ»†İúÿÿÿÿ8Ş¶¥Î¹.
-P
-java:S1199Û"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8´ß† º.
-d
-java:S3252ˆ"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ÑÅşÉ8Ş¶¥Î¹.
+u
+java:S3776É"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(áù…Ñüÿÿÿÿ8Ş¶¥Î¹.
+f
+java:S1128&"DRemove this unused import 'test.security.AppletAuthenticationToken'.(Œ¦ˆÎûÿÿÿÿ8¨Œõœ».
 J
-java:S1602á",Remove useless curly braces around statement(‹÷ó’8Ş¶¥Î¹.
-R
-java:S3740å"/Provide the parametrized type for this generic.(ÛŸ×úûÿÿÿÿ8Ş¶¥Î¹.
-K
-java:S1199Í"-Extract this nested code block into a method.(É¶È8´ß† º.
-p
-java:S3776­"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(÷È¯¦8´ß† º.
-]
-java:S3252¡"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ÑÅşÉ
-K
-java:S1199Ã"-Extract this nested code block into a method.(ƒá×Æ8´ß† º.
+java:S1602¤",Remove useless curly braces around statement(‹÷ó’8Ş¶¥Î¹.
 Q
 java:S2696M"6Make the enclosing method "static" or remove this set.(«”8Ş¶¥Î¹.
-Œ
-java:S1192u"jDefine a constant instead of duplicating this literal "/smart-dining-server/app/catering-shops/*" 3 times.(¢˜…£úÿÿÿÿ8ğ¾«í¹.
+{
+java:S3008Q"YRename this field "AUTH_WHITELIST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ»†İúÿÿÿÿ8Ş¶¥Î¹.
+R
+java:S3740–"/Provide the parametrized type for this generic.(İÇâıÿÿÿÿ8™¾ğ´¼.
+R
+java:S3740—"/Provide the parametrized type for this generic.(ÛŸ×úûÿÿÿÿ8™¾ğ´¼.
 M
-java:S3740‡"/Provide the parametrized type for this generic.(ñ¬†Ë8Ê÷‘í¹.
+java:S3740¹"/Provide the parametrized type for this generic.(ñ¬†Ë8™¾ğ´¼.
 M
-java:S3740 "/Provide the parametrized type for this generic.(¤ıñŞ8Ê÷‘í¹.
-u
-java:S3776Š"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(áù…Ñüÿÿÿÿ8Ş¶¥Î¹.
-y
-java:S3923Ó"[Remove this conditional structure or edit its code blocks so that they're not all the same.(Û†û±8Ş¶¥Î¹.
-k
-java:S1192µ"MDefine a constant instead of duplicating this literal "UNAUTHORIZED" 3 times.(«İ™®8Ş¶¥Î¹.
+java:S3740Ò"/Provide the parametrized type for this generic.(¤ıñŞ8™¾ğ´¼.
+d
+java:S3252º"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ÑÅşÉ8™¾ğ´¼.
+d
+java:S3252Ó"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(ÑÅşÉ8™¾ğ´¼.

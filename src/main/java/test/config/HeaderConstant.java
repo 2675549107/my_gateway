@@ -18,10 +18,4 @@ public final class HeaderConstant {
      * 用户Id
      */
     public static final String USER_ID = "user_id";
-
-    /**
-     * token类型（header字段，区分是小程序还是PC后台）
-     */
-    public static final String TOKEN_TYPE = "token_type";
-
 }

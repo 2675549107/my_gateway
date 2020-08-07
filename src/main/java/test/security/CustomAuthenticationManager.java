@@ -2,6 +2,7 @@
 package test.security;
 
 import lombok.extern.slf4j.Slf4j;
+import net.iotcd.api.sdk.core.result.ApiResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
@@ -11,9 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Mono;
-import test.config.ApiResult;
 import test.config.GlobalConstant;
 import test.feign.UserCenterApiClient;
 import test.pojo.vo.RoleVO;

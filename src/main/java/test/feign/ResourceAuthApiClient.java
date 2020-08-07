@@ -1,9 +1,10 @@
 package test.feign;
 
+import net.iotcd.api.sdk.core.result.ApiResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import test.config.ApiResult;
+
 
 import java.util.List;
 

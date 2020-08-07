@@ -2,12 +2,12 @@ package test.feign;
 
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
+import net.iotcd.api.sdk.core.result.ApiCode;
+import net.iotcd.api.sdk.core.result.ApiResponse;
+import net.iotcd.api.sdk.core.result.ApiResult;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
-import test.config.ApiCode;
-import test.config.ApiResult;
 import test.pojo.vo.RoleVO;
-import test.utils.enums.ApiResponse;
 
 import java.util.List;
 

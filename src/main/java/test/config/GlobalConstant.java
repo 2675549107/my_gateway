@@ -35,19 +35,4 @@ public interface GlobalConstant {
      * 身份 用于header中身份的传递
      */
     String ROLE_KEY = "Role";
-
-    /**
-     * 身份前缀
-     */
-    String AUTH_PREFIX = "ROLE_";
-
-    /**
-     * 允许的请求头参数
-     */
-    String ACCESS_CONTROL_ALLOW_HEADERS = "X-Requested-With, Origin, Content-Type, Cookie,Authorization,Access-Token,system_type";
-
-    /**
-     * 允许的方法(  "*" 浏览器版本较低的时候不支持)
-     */
-    String ACCESS_CONTROL_ALLOW_METHODS = "GET,POST,DELETE,PUT,OPTIONS,HEAD,CONNECT,TRACE,PATCH,*";
 }
