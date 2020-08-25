@@ -10,7 +10,7 @@ package test.config;
 public final class HeaderConstant {
 
     /**
-     * 岗位ID
+     * 角色Id
      */
     public static final String ROLE_ID = "role_id";
 

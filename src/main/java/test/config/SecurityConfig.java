@@ -62,7 +62,7 @@ public class SecurityConfig {
     /**
      * 允许的请求头参数
      */
-    private static final String ACCESS_CONTROL_ALLOW_HEADERS = "X-Requested-With, Origin, Content-Type, Cookie,Authorization,Access-Token,system_type";
+    private static final String ACCESS_CONTROL_ALLOW_HEADERS = "X-Requested-With,Origin,Content-Type,Cookie,Authorization,Access-Token,system_type";
 
     /**
      * 允许的方法(  "*" 浏览器版本较低的时候不支持)
@@ -96,7 +96,6 @@ public class SecurityConfig {
     private CustomAuthenticationManager customAuthenticationManager;
     @Autowired
     private ResourceAuthApiClient resourceAuthApiClient;
-
     @Autowired
     private JwtTokenUtils jwtTokenUtils;
 
@@ -140,6 +139,9 @@ public class SecurityConfig {
         final AnonymousAuthenticationToken anonymous = new AnonymousAuthenticationToken("key", "anonymous", AuthorityUtils.createAuthorityList(GlobalConstant.AUTH_ROLE_ANONYMOUS));
         return exchange -> {
             String token = exchange.getRequest().getHeaders().getFirst(GlobalConstant.HEADER_TOKEN_KEY);
+            /**
+             * 如果token是空的，设置一个游客角色
+             */
             if (StringUtils.isEmpty(token)) {
                 exchange.getResponse().getHeaders().add(GlobalConstant.ROLE_KEY, GlobalConstant.AUTH_ROLE_ANONYMOUS);
                 return Mono.just(anonymous);
@@ -147,6 +149,9 @@ public class SecurityConfig {
             String accountNameFromToken;
             //验证token有效性
             try {
+                /**
+                 * 从token中得到user的信息
+                 */
                 Claims claimsFromToken = jwtTokenUtils.getClaimsFromToken(token);
                 accountNameFromToken = claimsFromToken.getSubject();
                 Long userId = claimsFromToken.get(HeaderConstant.USER_ID, Long.class);
@@ -158,7 +163,7 @@ public class SecurityConfig {
                 headerMap.put(HeaderConstant.USER_ID, userId == null ? "" : userId.toString());
                 headerMap.put(HeaderConstant.ROLE_ID, roleId == null ? "" : roleId.toString());
                 //超级管理员
-                if (roleId != null && roleId.equals(1L)) {
+                if (roleId != null && roleId.equals(-1L)) {
                     exchange.getResponse().getHeaders().set(GlobalConstant.ROLE_KEY, GlobalConstant.AUTH_ROLE_ADMIN);
                 }
                 authentication = new WebAuthenticationToken(accountNameFromToken, token, roleId);

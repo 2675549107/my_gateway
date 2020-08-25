@@ -12,5 +12,9 @@
         <module name="my_gateway.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="my_gateway.my_gateway_sdk.main" target="1.8" />
+      <module name="my_gateway.my_gateway_sdk.test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

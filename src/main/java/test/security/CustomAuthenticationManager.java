@@ -45,7 +45,7 @@ public class CustomAuthenticationManager implements ReactiveAuthenticationManage
                     ApiResult<RoleVO> apiResult = userCenterApiClient.findRoleById(token.getRoleId());
                     if (apiResult.getCode() == HttpStatus.OK.value()) {
                         if(apiResult.getData() != null){
-                            roles.add("ROLE" + apiResult.getData().getSecurityName());
+                            roles.add("ROLE_" + apiResult.getData().getSecurityName());
                         }
                     }else{
                         log.error(String.format("远程调用失败:{user_center:findRoleByAccount:account=%s}",authentication.getName()));
