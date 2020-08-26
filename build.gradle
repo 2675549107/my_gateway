@@ -125,10 +125,9 @@ dependencies {
     implementation 'org.codehaus.janino:janino'
 
     //私服sdk通用jar
-    compile("net.iotcd.api:mysdk:$iotcd_version") {
+    compile("net.iotcd.api:my_sdk:1.2-SNAPSHOT") {
         exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-core'
     }
-    //compile "net.iotcd.api:mysdk:$iotcd_version"
 
 }
 
