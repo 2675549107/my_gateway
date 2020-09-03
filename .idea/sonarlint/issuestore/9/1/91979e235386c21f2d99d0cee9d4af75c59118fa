@@ -1,14 +1,14 @@
 
-[
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(÷ó«
-`
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(‹å ƒøÿÿÿÿ
 P
 java:S1118
 ":Add a private constructor to hide the implicit public one.(Ö”Ã‰
-Z
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¶ŸçF
 3
 java:S2386"Make this member "protected".(÷ó«
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(÷ó«
+Z
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¶ŸçF
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(‹å ƒøÿÿÿÿ
 `
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(åº¢Öıÿÿÿÿ

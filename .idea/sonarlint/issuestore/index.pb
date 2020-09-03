@@ -45,3 +45,7 @@ a
 1src/main/java/test/feign/UserCenterApiClient.java,2\9\29e10abe48cda8f706becc4ddfb667931b454163
 T
 $src/main/java/test/package-info.java,d\8\d8d06094ce0aa190c007c221319d32ab0d72361b
+?
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
+V
+&src/main/java/test/pojo/vo/RoleVO.java,9\c\9c2f5b236effe8a334ba1f01f42d5647f84d34ec
